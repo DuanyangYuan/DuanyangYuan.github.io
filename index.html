@@ -2,40 +2,44 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Duanyang Yuan</title>
+  <title>Duanyang Yuan | NUDT</title>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
+    /* 全局样式设定 */
     body {
-      /* 使用更优雅的字体 */
-      font-family: 'Lato', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      max-width: 850px; /* 稍微缩小宽度，提升阅读体验 */
+      font-family: 'Lato', 'Segoe UI', Roboto, Arial, sans-serif;
+      max-width: 880px;
       margin: 60px auto;
-      line-height: 1.7; /* 增加行高 */
-      color: #333; /* 稍微降低黑色纯度，变深灰色 */
+      line-height: 1.75;
+      color: #333; /* 墨灰色，比纯黑更高级 */
+      background-color: #fff;
       -webkit-font-smoothing: antialiased;
     }
 
+    /* 标题样式 */
     h1 {
-      font-size: 2.2rem;
-      margin-bottom: 30px;
+      font-size: 2.4rem;
       font-weight: 700;
+      margin-bottom: 30px;
+      color: #222;
     }
 
     h2 {
       font-size: 1.5rem;
-      border-bottom: 1.5px solid #eee;
+      border-bottom: 1px solid #eee;
       padding-bottom: 8px;
       margin-top: 50px;
-      margin-bottom: 20px;
-      color: #222;
+      margin-bottom: 25px;
+      color: #444;
       font-weight: 700;
+      letter-spacing: 0.5px;
     }
 
-    /* 链接样式：参考图片中的墨绿色/深色调 */
+    /* 链接样式 - 采用参考图中的色调 */
     a {
-      color: #5d8a2a; /* 类似图片中的学术绿 */
+      color: #5d8a2a; /* 学术绿 */
       text-decoration: none;
-      transition: color 0.2s;
+      transition: all 0.2s;
     }
 
     a:hover {
@@ -43,6 +47,7 @@
       text-decoration: underline;
     }
 
+    /* 个人资料栏 */
     .profile {
       display: flex;
       gap: 40px;
@@ -51,10 +56,10 @@
     }
 
     .profile img {
-      width: 180px;
+      width: 170px;
       height: auto;
       border-radius: 6px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* 增加一点微弱阴影 */
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
     }
 
     .profile-info {
@@ -63,64 +68,84 @@
 
     .profile-info p {
       margin: 8px 0;
+      color: #555;
     }
 
-    /* 重点强调色 */
-    .highlight {
-      color: #6a8d46; /* 调低了饱和度的绿色，更显高档 */
-      font-weight: 500;
+    .profile-info b {
+      color: #222;
     }
 
-    .date {
-      color: #666;
-      font-weight: 400;
-      margin-right: 10px;
-      display: inline-block;
-      min-width: 85px; /* 让日期对齐 */
-    }
-
+    /* 列表统一美化 */
     ul {
-      list-style-type: none; /* 去掉圆点，效仿图片中的简洁感 */
+      list-style-type: none;
       padding-left: 0;
     }
 
     li {
       margin-bottom: 12px;
       position: relative;
+      padding-left: 20px;
     }
 
-    /* 如果想保留圆点，可以用这个更精致的 */
-    ul li::before {
+    li::before {
       content: "•";
-      color: #ccc;
+      position: absolute;
+      left: 0;
+      color: #999;
+    }
+
+    /* 关于我部分的强调色 */
+    .highlight {
+      color: #6a8d46;
+      font-weight: 500;
+    }
+
+    /* News部分日期对齐 */
+    .news-date {
+      color: #777;
+      font-family: monospace;
+      font-weight: 400;
       margin-right: 12px;
+      display: inline-block;
+      min-width: 85px;
     }
 
-    .news-item {
-      margin-bottom: 10px;
-    }
-
-    .publication-item {
+    /* 论文列表美化 */
+    .pub-item {
       display: flex;
       gap: 25px;
       margin-bottom: 35px;
     }
 
     .pub-img {
-      width: 240px;
-      border: 1px solid #f0f0f0;
+      width: 260px;
+      height: auto;
+      border: 1px solid #f2f2f2;
+      border-radius: 2px;
+      transition: transform 0.2s;
     }
 
-    .venue {
-      font-weight: 700;
-      color: #444;
+    .pub-img:hover {
+      transform: scale(1.02);
     }
-    
-    .paper-title {
-      font-weight: 700;
+
+    .pub-info b {
       display: block;
       margin-bottom: 5px;
       font-size: 1.05rem;
+      line-height: 1.4;
+    }
+
+    .venue-tag {
+      font-weight: 700;
+      color: #444;
+    }
+
+    /* 响应式调整 */
+    @media (max-width: 600px) {
+      .profile, .pub-item { flex-direction: column; }
+      body { padding: 20px; }
+      .pub-img { width: 100%; }
     }
   </style>
 </head>
@@ -132,47 +157,118 @@
 <div class="profile">
   <img src="photo.jpg" alt="Duanyang Yuan">
   <div class="profile-info">
-    <p><b>Ph.D. Student</b> (2024 - 2028)</p>
-    <p>National University of Defense Technology (NUDT)</p>
+    <p><b>Position:</b> Ph.D. Student (2024.09 – 2028.06)</p>
+    <p><b>Affiliation:</b> National University of Defense Technology (NUDT)</p>
     <p>
-      Email: <a href="mailto:ydy_n1@nudt.edu.cn">ydy_n1@nudt.edu.cn</a><br>
-      Address: Changsha, Hunan, China
+      <b>Email:</b> <a href="mailto:ydy_n1@nudt.edu.cn">ydy_n1@nudt.edu.cn</a> <br>
+      <b>Address:</b> Changsha, Hunan, China
     </p>
     <p style="margin-top: 15px;">
-      <a href="#">[GitHub]</a> &nbsp; <a href="#">[DBLP]</a> &nbsp; <a href="#">[Google Scholar]</a>
+      <a href="#">[GitHub]</a> &nbsp; | &nbsp; 
+      <a href="#">[DBLP]</a> &nbsp; | &nbsp;
+      <a href="#">[Google Scholar]</a>
     </p>
   </div>
 </div>
 
 <h2>About Me</h2>
 <p>
-  Hi there, I am <span class="highlight">Duanyang Yuan</span>. 
+  Hi there, I am <span class="highlight">Duanyang Yuan (袁端阳)</span>. 
   I am currently a Ph.D. student at <span class="highlight">the National University of Defense Technology (NUDT)</span>, 
-  where I conduct research on intelligent decision-making methods for complex environments. 
-  I received my M.S. degree from Shanghai University (2021–2024). 
+  where I conduct research on <span class="highlight">intelligent decision-making methods for complex environments</span>. 
+  I received my M.S. degree from Shanghai University (2021–2024).
 </p>
 <p>
-  My research interests lie at the intersection of <b>Planning and Decision Making, Large Language Models, and Knowledge Graphs</b>. 
-  During my Ph.D. studies, I am fortunate to be advised by <a href="#">Researcher Jian Huang</a> and <a href="#">Associate Researcher Sihang Zhou</a>.
+  My research interests focus on the intersection of <b>planning and decision making, large language models, knowledge graphs, and information retrieval</b>. 
+  In particular, I study how structured knowledge and retrieval can be integrated to improve the reliability and adaptability of reasoning in LLM-based systems.
+</p>
+<p>
+  During my Ph.D. studies at NUDT, I am fortunate to be advised by 
+  <a href="http://yjszs.nudt.edu.cn/pubweb/homePageList/queryTeacherList.view?keyId=24">Researcher Jian Huang</a> and 
+  <a href="https://scholar.google.com/citations?user=p9Se8kYAAAAJ&hl=zh-CN&oi=ao">Associate Researcher Sihang Zhou</a>.
 </p>
 
+<h2>Research Interests</h2>
+<ul>
+  <li>Planning and Decision Making</li>
+  <li>Knowledge Graphs and Reasoning</li>
+  <li>Large Language Models (LLMs)</li>
+  <li>Information Retrieval & RAG</li>
+</ul>
+
 <h2>News</h2>
-<ul class="news">
-  <li><span class="date">[2024.12]</span> One paper accepted by <span class="venue">AAAI 2025</span> (<b>Oral</b>). <a href="#">[Paper]</a></li>
-  <li><span class="date">[2023.08]</span> One paper accepted by <span class="venue">Review of Scientific Instruments</span>. <a href="#">[Paper]</a></li>
+<ul>
+  <li><span class="news-date">[2024.12]</span> One paper accepted by <span class="venue-tag">AAAI 2025</span> (<b>Oral</b>). <a href="https://ojs.aaai.org/index.php/AAAI/article/view/33672">[Paper]</a></li>
+  <li><span class="news-date">[2025.05]</span> One paper accepted by <i>Frontiers in Physiology</i>. <a href="#">[Paper]</a></li>
+  <li><span class="news-date">[2023.08]</span> One paper accepted by <i>Review of Scientific Instruments</i>. <a href="#">[Paper]</a></li>
+</ul>
+
+<h2>Under Review</h2>
+<ul>
+  <li>One manuscript under revision for <b>IEEE TKDE</b>.</li>
+  <li>One manuscript submitted to <b>IEEE TNNLS</b>.</li>
+  <li>One manuscript under review at <b>IEEE TPAMI</b>.</li>
 </ul>
 
 <h2>Selected Publications</h2>
 
-<div class="publication-item">
+<div class="pub-item">
   <img src="paper/aaai2025.png" class="pub-img" alt="AAAI 2025">
-  <div>
-    <span class="paper-title">Knowledge Graph Completion with Relation-Aware Anchor Enhancement</span>
-    <p><b>Duanyang Yuan</b>, et al.<br>
-    <i>Proceedings of the AAAI Conference on Artificial Intelligence (<span class="venue">AAAI 2025</span>)</i>, <b>Oral</b><br>
-    <a href="#">[Paper]</a></p>
+  <div class="pub-info">
+    <b>Knowledge Graph Completion with Relation-Aware Anchor Enhancement</b>
+    Duanyang Yuan, et al.<br>
+    <i>Proc. of the AAAI Conference on Artificial Intelligence (<span class="venue-tag">AAAI 2025</span>)</i>, <b>Oral</b><br>
+    <a href="https://ojs.aaai.org/index.php/AAAI/article/view/33672">[Paper]</a>
   </div>
 </div>
+
+<div class="pub-item">
+  <img src="paper/frontiers12023.png" class="pub-img" alt="Frontiers 2023">
+  <div class="pub-info">
+    <b>A regression method for EEG-based cross-dataset fatigue detection</b>
+    Duanyang Yuan, et al.<br>
+    <i>Frontiers in Physiology</i>, 2023<br>
+    <a href="#">[Paper]</a>
+  </div>
+</div>
+
+<div class="pub-item">
+  <img src="paper/rsi12023.png" class="pub-img" alt="RSI 2023">
+  <div class="pub-info">
+    <b>A regression model combined CNN and RNN for EEG-based cross-subject fatigue detection</b>
+    Duanyang Yuan, et al.<br>
+    <i>Review of Scientific Instruments</i>, 2023<br>
+    <a href="#">[Paper]</a>
+  </div>
+</div>
+
+<h2>Lab Members & Collaborators</h2>
+<ul>
+  <li><a href="#">Researcher Jian Huang</a> (NUDT)</li>
+  <li><a href="https://xinwangliu.github.io/">Prof. Xinwang Liu</a> (NUDT)</li>
+  <li><a href="#">Associate Researcher Sihang Zhou</a> (NUDT)</li>
+  <li><a href="https://liangke23.github.io/">Ke Liang</a>, <a href="https://ai-chen.github.io/">Xiaoshu Chen</a></li>
+</ul>
+
+<h2>Professional Services</h2>
+<ul>
+  <li>Reviewer for IEEE Transactions on Knowledge and Data Engineering (TKDE)</li>
+  <li>Reviewer for Information Fusion (IF)</li>
+</ul>
+
+<h2>Honors & Scholarships</h2>
+<ul>
+  <li><b>China National Scholarship</b></li>
+  <li>Outstanding Graduate (Shanghai University)</li>
+  <li>China College Students Self-Improvement Star Scholarship <a href="#">[Link]</a></li>
+  <li>National First Prize, Mathematical Modeling Contest</li>
+</ul>
+
+<h2>Talents</h2>
+<ul>
+  <li>Running & Fitness Training</li>
+  <li>Musical Instruments</li>
+</ul>
 
 </body>
 </html>
